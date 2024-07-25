@@ -10,9 +10,8 @@ To install the CLI globally, run:
 npm install -g create-salt-app
 ```
 
-```html
+
 <pre>
 <code class="language-bash">npm install -g create-salt-app</code>
 <button onclick="navigator.clipboard.writeText('npm install -g create-salt-app')">Copy</button>
 </pre>
-```
