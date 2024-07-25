@@ -8,4 +8,3 @@ To install the CLI globally, run:
 
 ```bash
 npm install -g create-salt-app
-```
