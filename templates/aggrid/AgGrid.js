@@ -2,7 +2,7 @@ import { useDensity, useTheme } from "@salt-ds/core";
 // import type { GridReadyEvent } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 import { type ReactElement, useMemo } from "react";
-import { defaultData } from "./data";
+import { defaultData } from "./data.js";
 import "ag-grid-community/styles/ag-grid.css";
 import "@salt-ds/ag-grid-theme/salt-ag-theme.css";
 

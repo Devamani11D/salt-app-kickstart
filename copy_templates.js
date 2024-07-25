@@ -1,19 +1,23 @@
 import fs from 'fs-extra';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 async function copyFolder(projectName,template_choices) {
   try {
     let relativePath=`${path.sep+"templates"+path.sep+template_choices.toLowerCase()}`
-    let sourcePath=process.cwd();
+    let sourcePath=__dirname;
     let source=sourcePath+relativePath;
+    let basePath=process.cwd();
     let destinationPath=`${projectName+path.sep+"src"}`;
-    let destination=path.dirname(sourcePath)+path.sep+destinationPath+relativePath;
+    let destination=basePath+path.sep+destinationPath+relativePath;
     console.log(source + " " + destination);
     await fs.copy(source, destination);
     let files_array=["index.js","index.html"];
     let app_file_content={
         form:
-            'import Form from "./templates/form/Form";\n'+
+            'import Form from "./templates/form/Form.js";\n'+
             'function App() {\n'+
             'return <Form/>\n;'+
             '}\n'+
@@ -21,7 +25,7 @@ async function copyFolder(projectName,template_choices) {
             'export default App;\n'
         ,
         aggrid:
-            'import { Default } from "./templates/aggrid/AgGrid";\n'+
+            'import { Default } from "./templates/aggrid/AgGrid.js";\n'+
             'function App() {\n'+
             'return <Default/>;\n'+
             '}\n'+
@@ -30,7 +34,7 @@ async function copyFolder(projectName,template_choices) {
         ,
         appheader:
             
-            'import AppHeader from "./templates/appheader/AppHeader";\n'+
+            'import AppHeader from "./templates/appheader/AppHeader.js";\n'+
             'function App() {\n'+
             'return <AppHeader/>;\n'+
             '}\n'+
@@ -39,9 +43,9 @@ async function copyFolder(projectName,template_choices) {
         
 
     }
-    let appJsPath=path.dirname(sourcePath)+path.sep+destinationPath+path.sep+"App.js";
+    let appJsPath=basePath+path.sep+destinationPath+path.sep+"App.js";
     let content=app_file_content[template_choices.toLowerCase()];
-    console.log
+    
     fs.writeFile(appJsPath, content, 'utf-8', (err) => {
         if (err) {
           console.error(`Error writing to App.js: ${err.message}`);
@@ -51,7 +55,7 @@ async function copyFolder(projectName,template_choices) {
       });
     files_array.map(async(filePath)=>{
         let fileSource=sourcePath+path.sep+filePath;
-        let fileDestination=path.dirname(sourcePath)+path.sep+destinationPath+path.sep+filePath;
+        let fileDestination=basePath+path.sep+destinationPath+path.sep+filePath;
         await fs.copy(fileSource, fileDestination,{overwrite:true});
     });
 

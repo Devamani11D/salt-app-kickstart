@@ -1,15 +1,15 @@
 {
   "name": "create-salt-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.6",
+  "description": "A CLI tool to inject templates built using Salt design System into the react app, launch it to localhost and push to github..",
+  "main": "./cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node cli.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["salt","salt-app","create-salt-app","cli tool"],
+  "author": "Duddekunta Devamani",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^12.1.0",
@@ -23,5 +23,15 @@
   "type": "module",
   "bin": {
     "create-salt-app": "./cli.js"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Devamani11D/create-salt-app.git",
+    "directory": "packages/create-salt-app"
+  },
+  "bugs": {
+    "url": "https://github.com/Devamani11D/create-salt-app/issues"
+  },
+  "homepage": "https://github.com/Devamani11D/create-salt-app#readme"
+  
 }

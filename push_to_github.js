@@ -58,7 +58,6 @@ const push_to_github=async (projectName,token,username,repositoryName,branch,com
     console.log(chalk.green("Pushing to github.."));
     const remote=`https://${token}@github.com/${username}/${repositoryName}.git`;
     const commands=[
-        'cd ../',
         `cd ${projectName}`,
         `gh repo create ${repositoryName} --public --description ${repositoryName}`,
         // 'git init',

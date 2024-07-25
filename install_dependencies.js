@@ -5,6 +5,18 @@ import util from 'util'
 const execPromise = util.promisify(exec);
 
 const dependencies=[
+  {
+    name:'react',
+    version:'18.3.1'
+},
+{
+  name:'react-dom',
+  version:'18.3.1'
+},
+{
+  name:'react-scripts',
+  version:'5.0.1'
+},
     {
         name:'@salt-ds/core',
         version:'1.32.0'
@@ -71,7 +83,7 @@ const install_dependencies=async (projectName)=>{
         }).join(' ')}`;
 
     const commands=[
-        `cd ../ && mkdir ${projectName} && cd ${projectName}`,
+        `mkdir ${projectName} && cd ${projectName}`,
         'npx create-react-app ./',
         install_command
         // `npm install react`

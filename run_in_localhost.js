@@ -33,7 +33,7 @@ const run_in_localhost=async (projectName)=>{
 
     console.log(chalk.green("Launching to Localhost.."));
     const commands=[
-        `cd ../ && cd ${projectName}`,
+        `cd ${projectName}`,
         'npm start',
     ];
 
