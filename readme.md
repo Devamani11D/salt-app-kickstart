@@ -1,138 +1,46 @@
-<!-- # Create Salt App
+# Create Salt App
 
-Create a new Salt Design System app quickly and easily.
+![npm](https://img.shields.io/npm/v/create-salt-app?style=flat-square) ![npm](https://img.shields.io/npm/dt/create-salt-app?style=flat-square)
 
-## Installation
+Create Salt App is a CLI tool that helps you quickly set up a new project with the Salt Design System and necessary dependencies. It reduces the time needed to start a new project by automating the setup process.
 
-To install the CLI globally, run:
+## Installation & Usage
+
+To create a new Salt app, simply run the following command:
 
 ```bash
-npm install -g create-salt-app
+npx create-salt-app@latest
 ```
+This will create a new directory with the specified project name, set up the project structure, and install all the necessary dependencies.
 
+### Example
 
-<pre>
-<code class="language-bash">npm install -g create-salt-app</code>
-<button onclick="navigator.clipboard.writeText('npm install -g create-salt-app')">Copy</button>
-</pre> -->
+\`\`\`bash
+npx ${packageName}@${version} my-salt-app
+\`\`\`
 
+## Value Proposition
 
-# Markdown Cheat Sheet
+Using Create Salt App, you can:
+- Save time on initial setup by automating the creation of the project structure and installation of dependencies.
+- Ensure consistency across projects by using a standardized setup.
+- Quickly start working on your project without worrying about the initial configuration.
 
-Thanks for visiting [The Markdown Guide](https://www.markdownguide.org)!
+## Features
 
-This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can’t cover every edge case, so if you need more information about any of these elements, refer to the reference guides for [basic syntax](https://www.markdownguide.org/basic-syntax/) and [extended syntax](https://www.markdownguide.org/extended-syntax/).
+- **Automatic Setup**: Sets up the project structure and installs dependencies.
+- **Template Support**: Choose between different templates to kickstart your project.
+- **GitHub Integration**: Optionally push your new project to a GitHub repository.
 
-## Basic Syntax
+## Options
 
-These are the elements outlined in John Gruber’s original design document. All Markdown applications support these elements.
+- \`-y\` : Skip prompts and use default options.
 
-### Heading
+## Contributing
 
-# H1
-## H2
-### H3
+Contributions are welcome! Please check out the [Contributing Guide](CONTRIBUTING.md) for more details.
 
-### Bold
+## License
 
-**bold text**
-
-### Italic
-
-*italicized text*
-
-### Blockquote
-
-> blockquote
-
-### Ordered List
-
-1. First item
-2. Second item
-3. Third item
-
-### Unordered List
-
-- First item
-- Second item
-- Third item
-
-### Code
-
-`code`
-
-### Horizontal Rule
-
----
-
-### Link
-
-[Markdown Guide](https://www.markdownguide.org)
-
-### Image
-
-![alt text](https://www.markdownguide.org/assets/images/tux.png)
-
-## Extended Syntax
-
-These elements extend the basic syntax by adding additional features. Not all Markdown applications support these elements.
-
-### Table
-
-| Syntax | Description |
-| ----------- | ----------- |
-| Header | Title |
-| Paragraph | Text |
-
-### Fenced Code Block
-
-```
-{
-  "firstName": "John",
-  "lastName": "Smith",
-  "age": 25
-}
-```
-
-### Footnote
-
-Here's a sentence with a footnote. [^1]
-
-[^1]: This is the footnote.
-
-### Heading ID
-
-### My Great Heading {#custom-id}
-
-### Definition List
-
-term
-: definition
-
-### Strikethrough
-
-~~The world is flat.~~
-
-### Task List
-
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
-
-### Emoji
-
-That is so funny! :joy:
-
-(See also [Copying and Pasting Emoji](https://www.markdownguide.org/extended-syntax/#copying-and-pasting-emoji))
-
-### Highlight
-
-I need to highlight these ==very important words==.
-
-### Subscript
-
-H~2~O
-
-### Superscript
-
-X^2^
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+`
