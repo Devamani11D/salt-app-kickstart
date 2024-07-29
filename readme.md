@@ -1,14 +1,8 @@
-
 # Create Salt App
 
 ![npm](https://img.shields.io/npm/v/create-salt-app?style=flat-square) ![npm](https://img.shields.io/npm/dt/create-salt-app?style=flat-square)
 
-Create Salt App is a CLI tool that helps you quickly set up a new project with the Salt Design System and necessary dependencies. It reduces the time needed to start a new project by automating the setup process.
-
-<p>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/XX755Qq71Bk?si=eS421TpMoa-48bEl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</p>
-
+Create a new Salt Design System app quickly and easily.
 
 ## Installation & Usage
 
