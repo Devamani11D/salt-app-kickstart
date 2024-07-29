@@ -13,6 +13,9 @@ npx create-salt-app@latest
 ```
 This will prompt you with few questions to gather details about the app and then create a new directory with the specified project name, set up the project structure, and install all the necessary dependencies.
 
+[![Demonstration of the package](/video-thumbnail.png)](https://drive.google.com/file/d/1n9vpbLMB3yBoGzmRJd2RxG8EkK0tkl-t/view?usp=sharing)
+
+
 ## Value Proposition
 
 Using Create Salt App, you can:
