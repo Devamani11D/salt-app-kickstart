@@ -5,7 +5,7 @@
 Create Salt App is a CLI tool that helps you quickly set up a new project with the Salt Design System and necessary dependencies. It reduces the time needed to start a new project by automating the setup process.
 
 <p>
-  <iframe width="560" height="315" src="[https://www.youtube.com/embed/XX755Qq71Bk?si=eS421TpMoa-48bEl](https://drive.google.com/uc?id=1n9vpbLMB3yBoGzmRJd2RxG8EkK0tkl-t&export=download)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe width="560" height="315" src="[https://drive.google.com/uc?id=1n9vpbLMB3yBoGzmRJd2RxG8EkK0tkl-t&export=download]" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </p>
 
 
