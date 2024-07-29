@@ -4,10 +4,6 @@ import { MenuIcon ,CloseIcon, UserBadgeIcon} from '@salt-ds/icons';
 const AppHeader=() => {
     const [offset, setOffset] = useState(0);
     const isMobile = false;
-    // useResponsiveProp({
-    //   xs: true,
-    //   sm: false
-    // }, false);
     const setScroll = () => {
       setOffset(window.scrollY);
     };
@@ -141,8 +137,6 @@ const AppHeader=() => {
         <BorderItem position="north">
           {isMobile ? <MobileAppHeader items={items} utilities={utilities} /> : <DesktopAppHeader items={items} utilities={utilities} />}
         </BorderItem>
-        
-        
       </BorderLayout>;
   }
   export default AppHeader;

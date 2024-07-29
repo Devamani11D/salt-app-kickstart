@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 import {Command} from 'commander'
 import chalk from 'chalk'
 import readline from 'readline'
@@ -18,15 +17,12 @@ const rl=readline.createInterface({
     output:process.stdout
 });
 const program=new Command();
-
 program
 .version('1.0.0')
 .description('A simple CLI tool to create a salt App using Salt Design System By J.P.Morgan Chase & Co.');
 const platform=os.platform();
-
 let installGitCommand='choco install git -y';
 let installGhCommand='choco install gh -y';
-
 switch(platform){
     case "win32":
         installGitCommand='choco install git -y';
@@ -42,7 +38,6 @@ switch(platform){
     break;
     default:
         console.error("Unsupported OS");
-
 }
 const questions=[
     {
@@ -85,9 +80,10 @@ const questions=[
           filter: (input) => input.trim() || '',
     },
     {
-        type:'input',
+        type:'password',
         name:'token',
-        message:'Please input the github Personal Token(token should have read only access)',
+        message:'Please input the github Personal Token(token should have the following access:\n1. repo:status\n2. repo_deployment\n3. public_repo\n4.repo:invite\n5.read:org(under admin:org)\n',
+        mask:'*',
         when:(answers)=>answers.push_to_github,
         validate: (input) => {
             if (input.trim() === '') {
@@ -109,7 +105,6 @@ const questions=[
             return true;
           },
           filter: (input) => input.trim() || '',
-
     },
     {
         type:'list',
@@ -118,7 +113,6 @@ const questions=[
         choices:["master","develop",new inquirer.Separator(),"Custom Branch Name"],
         default:"master",
         when:(answers)=>answers.push_to_github
-
     },
     {
         type:'input',
@@ -140,39 +134,31 @@ const questions=[
         default:"Initial_Commit",
         when:(answers)=>answers.push_to_github,
         filter: (input) => input.trim() || "Initial Commit",
-
     },
-]
-
-
-
+];
 program
 .command('ask')
 .description("Please provide the information for the below questions")
 .action(()=>{
     let responses={};
     const askQuestion=async (index)=>{
-        // responses=inquirer.prompt(questions);
         await inquirer.prompt(questions).then((answers)=>{
             responses=answers;
-            // console.log('answers');
         }).catch((error)=>{
             if (error.isTtyError) {
                 console.log('ttyerror');
                 // Prompt couldn't be rendered in the current environment
               } else {
                 // Something else went wrong
-                console.log('else part');
+                console.log('Unknown error.');
               }
         });
-        console.log(chalk.green('\nYour Responses: '));
-            console.log(chalk.yellow(JSON.stringify(responses,null,2)));
             try{
              await install_dependencies(responses.appName);
              await copyFolder(responses.appName,responses.template_choices);
              if(responses.push_to_github){
               checkAndInstall('git',installGitCommand,platform);
-            checkAndInstall('gh',installGhCommand,platform);
+              checkAndInstall('gh',installGhCommand,platform);
              let content=`GITHUB_TOKEN=${responses.token}`
              let envPath=process.cwd()+path.sep+".env";
              fs.writeFile(envPath, content, 'utf-8', (err) => {
@@ -185,30 +171,12 @@ program
               await push_to_github_remote(responses.appName,responses.token,responses.github_username,responses.github_repository_name,responses.github_branch_name,responses.github_commitMessage);
             }
             await run_in_localhost(responses.appName);
-            
             }catch(error){
                 console.log("Error : "+error.message);
             }
-        // if(index=== questions.length){
-        //     console.log(chalk.green('Your Responses: '));
-        //     console.log(chalk.yellow(JSON.stringify(responses,null,2)));
-
-        //     rl.close();
-        //     install_dependencies(responses.appName);
-        //     return;
-        // }
-        // const currQuestion=questions[index];
-        // const default_text=currQuestion.default ? chalk.gray(`${currQuestion.default}`) : '';
-
-    
-        // rl.question(chalk.blue(currQuestion.question)+default_text+" ",(answer)=>{
-        //     responses[currQuestion.name]=answer? answer : currQuestion.default;
-        //     askQuestion(index+1);
-        // });
     };
     askQuestion(0);
 });
-
 if (!process.argv.slice(2).length) {
     program.outputHelp();
     process.argv.push('ask');

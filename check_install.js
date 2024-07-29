@@ -1,8 +1,6 @@
 import {execSync} from 'child_process'
 import os from 'os'
 import sudoPrompt from 'sudo-prompt'
-
-
 const options = {
     name: 'My CLI App',
   };
@@ -31,9 +29,7 @@ const checkAndInstall=(command,installCommand,platform)=>{
                 console.error(`Please run the script with administrative rights to install ${command}.`);
                 process.exit(1);
               }
-
         }
     }
 }
-
 export default checkAndInstall;

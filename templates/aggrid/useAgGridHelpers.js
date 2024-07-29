@@ -1,17 +1,14 @@
 import { useDensity, useTheme } from "@salt-ds/core";
 import { LicenseManager } from "ag-grid-enterprise";
 import { useMemo, useRef, useState } from "react";
-
 // Set the license key for ag-grid-enterprise
 LicenseManager.setLicenseKey("your license key");
-
 // Helps to set className, rowHeight and headerHeight depending on the current density
 export function useAgGridHelpers(compact = false) {
   const apiRef = useRef();
   const [isGridReady, setGridReady] = useState(false);
   const density = useDensity();
   const { mode } = useTheme();
-
   const [rowHeight, listItemHeight] = useMemo(() => {
     switch (density) {
       case compact && "high":
@@ -30,13 +27,11 @@ export function useAgGridHelpers(compact = false) {
   }, [density, compact]);
 
   const className = `ag-theme-salt${compact && density === "high" ? "-compact" : ""}-${mode}`;
-
   const onGridReady = ({ api, columnApi }) => {
     apiRef.current = { api, columnApi };
     api.sizeColumnsToFit();
     setGridReady(true);
   };
-
   return {
     containerProps: {
       className,
