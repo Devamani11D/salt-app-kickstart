@@ -1,6 +1,6 @@
-# Create Salt App
+# Salt App Kickstart
 
-![npm](https://img.shields.io/npm/v/create-salt-app?style=flat-square) ![npm](https://img.shields.io/npm/dt/create-salt-app?style=flat-square)
+![npm](https://img.shields.io/npm/v/salt-app-kickstart?style=flat-square) ![npm](https://img.shields.io/npm/dt/salt-app-kickstart?style=flat-square)
 
 Create a new Salt Design System app quickly and easily.
 
@@ -9,7 +9,7 @@ Create a new Salt Design System app quickly and easily.
 To install & reate a new Salt app, simply run the following command:
 
 ```bash
-npx create-salt-app@latest
+npx salt-app-kickstart@latest
 ```
 This will prompt you with few questions to gather details about the app and then create a new directory with the specified project name, set up the project structure, and install all the necessary dependencies.
 
@@ -22,7 +22,7 @@ This will prompt you with few questions to gather details about the app and then
 
 ## Value Proposition
 
-Using Create Salt App, you can:
+Using Salt App Kickstart, you can:
 - Save time on initial setup by automating the creation of the project structure and installation of dependencies.
 - Ensure consistency across projects by using a standardized setup.
 - Save time by pushing to GitHub, performing a few simple steps.

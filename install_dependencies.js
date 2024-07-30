@@ -21,6 +21,10 @@ const dependencies=[
         version:'1.32.0'
     },
     {
+        name:'@salt-ds/lab',
+        version:'1.0.0-alpha.50'
+    },
+    {
         name:'@salt-ds/ag-grid-theme',
         version:'1.4.3'
     },
