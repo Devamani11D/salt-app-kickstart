@@ -1,5 +1,5 @@
 {
-  "name": "create-salt-app",
+  "name": "salt-app-kickstart",
   "version": "1.1.0",
   "description": "A CLI tool to inject templates built using Salt design System into the react app, launch it to localhost and push to github..",
   "main": "./cli.js",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node cli.js"
   },
-  "keywords": ["salt","salt-app","create-salt-app","cli tool"],
+  "keywords": ["salt","salt-app","salt-app-kickstart","cli tool"],
   "author": "Duddekunta Devamani",
   "license": "MIT",
   "dependencies": {
@@ -22,16 +22,16 @@
   },
   "type": "module",
   "bin": {
-    "create-salt-app": "./cli.js"
+    "salt-app-kickstart": "./cli.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Devamani11D/create-salt-app.git",
-    "directory": "packages/create-salt-app"
+    "url": "https://github.com/Devamani11D/salt-app-kickstart.git",
+    "directory": "packages/salt-app-kickstart"
   },
   "bugs": {
-    "url": "https://github.com/Devamani11D/create-salt-app/issues"
+    "url": "https://github.com/Devamani11D/salt-app-kickstart/issues"
   },
-  "homepage": "https://github.com/Devamani11D/create-salt-app#readme"
+  "homepage": "https://github.com/Devamani11D/salt-app-kickstart#readme"
   
 }
