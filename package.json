@@ -1,6 +1,6 @@
 {
   "name": "salt-app-kickstart",
-  "version": "1.1.0",
+  "version": "1.0.1",
   "description": "A CLI tool to inject templates built using Salt design System into the react app, launch it to localhost and push to github..",
   "main": "./cli.js",
   "scripts": {

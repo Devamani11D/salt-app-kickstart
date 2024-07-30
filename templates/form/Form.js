@@ -3,17 +3,18 @@ import { DatePicker } from "@salt-ds/lab";
 import type { DateValue } from "@internationalized/date";
 import {GridLayout,GridItem,Input,FormFieldLabel,FormField ,FormFieldHelperText,Dropdown,Option,MultilineInput,Label,Display2,H3,Display3,Display4,StackLayout,Button,FlexItem,RadioButtonGroup,RadioButton}from '@salt-ds/core'
 const Form = () => {
-    const countries_list=["India","Indonesia","New York"];
+    const courses_list=["Electronics & Communication Engineering","Computer Science & Engineering","Electrical & Electronics Engineering"];
+    const years=["2025","2026","2027","2028","2029"];
     const initialFormData={
-        country:"India",
-        booking_location:"",
-        processing_unit:"Indonesia",
-        agreementId:"",
-        ecl:"",
-        crl:"",
-        lob:"",
-        customer_name:"",
-        other_data:""
+        course:"Electronics & Communication Engineering",
+        firstName:"",
+        lastName:"",
+        sid:"",
+        email:"",
+        phoneNumber:"",
+        homeAddress:"",
+        yearOfStudy:"2025",
+        grade:""
     }
     const [validationStatus, setValidationStatus] = useState(
       undefined,
@@ -51,14 +52,14 @@ const Form = () => {
             <GridItem colSpan={4}>
           <FormField>
             <FormFieldLabel>First Name</FormFieldLabel>
-            <Input value={formData.agreementId} id="agreementId" onChange={handleFormDataChange}></Input>
+            <Input value={formData.firstName} id="firstName" onChange={handleFormDataChange}></Input>
             <FormFieldHelperText>Input your first name</FormFieldHelperText>
           </FormField>
         </GridItem>
         <GridItem colSpan={4}>
           <FormField>
             <FormFieldLabel>Last Name</FormFieldLabel>
-            <Input value={formData.agreementId} id="agreementId" onChange={handleFormDataChange}></Input>
+            <Input value={formData.lastName} id="lastName" onChange={handleFormDataChange}></Input>
             <FormFieldHelperText>Input your Last Name</FormFieldHelperText>
           </FormField>
         </GridItem>
@@ -97,7 +98,7 @@ const Form = () => {
         <GridItem colSpan={4}>
           <FormField>
             <FormFieldLabel>Student ID</FormFieldLabel>
-            <Input value={formData.ecl} id="ecl" onChange={handleFormDataChange}></Input>
+            <Input value={formData.sid} id="sid" onChange={handleFormDataChange}></Input>
             <FormFieldHelperText>Input your ID</FormFieldHelperText>
           </FormField>
         </GridItem>
@@ -115,21 +116,21 @@ const Form = () => {
         <GridItem colSpan={4}> 
           <FormField>
             <FormFieldLabel>Email Address</FormFieldLabel>
-            <Input value={formData.crl} onChange={handleFormDataChange} id="crl"></Input>
+            <Input value={formData.email} onChange={handleFormDataChange} id="email"></Input>
             {/* <FormFieldHelperText>Input your Email ID</FormFieldHelperText> */}
           </FormField>
         </GridItem>
         <GridItem colSpan={4}>     
           <FormField>
             <FormFieldLabel>Phone Number</FormFieldLabel>
-            <Input value={formData.customer_name} id="customer_name" onChange={handleFormDataChange}></Input>
+            <Input value={formData.phoneNumber} id="phoneNumber" onChange={handleFormDataChange}></Input>
             {/* <FormFieldHelperText>Input your Customer Name</FormFieldHelperText> */}
           </FormField>
         </GridItem>
         <GridItem colSpan={4}>      
           <FormField>
             <FormFieldLabel>Home Address</FormFieldLabel>
-            <Input value={formData.lob} id="lob" onChange={handleFormDataChange}></Input>
+            <Input value={formData.homeAddress} id="homeAddress" onChange={handleFormDataChange}></Input>
             {/* <FormFieldHelperText>Input your LOB</FormFieldHelperText> */}
           </FormField>
         </GridItem>
@@ -149,10 +150,10 @@ const Form = () => {
         <GridItem colSpan={4}>
           <FormField>
             <FormFieldLabel>Major Degree Course</FormFieldLabel>
-            <Dropdown defaultSelected={["India"]} id="country">
-              {countries_list.map((country)=>{
+            <Dropdown defaultSelected={["Electronics & Communication Engineering"]} id="course">
+              {courses_list.map((course)=>{
                 return(
-                    <Option value={country}>{country}</Option>
+                    <Option value={course}>{course}</Option>
                 )
               })}
             </Dropdown>
@@ -162,10 +163,10 @@ const Form = () => {
         <GridItem colSpan={4}>
           <FormField>
             <FormFieldLabel>Year of Study</FormFieldLabel>
-            <Dropdown defaultSelected={["India"]} id="country">
-              {countries_list.map((country)=>{
+            <Dropdown defaultSelected={["2025"]} id="yearOfStudy">
+              {years.map((year)=>{
                 return(
-                    <Option value={country}>{country}</Option>
+                    <Option value={year}>{year}</Option>
                 )
               })}
             </Dropdown>
@@ -175,7 +176,7 @@ const Form = () => {
         <GridItem colSpan={4}>
           <FormField>
             <FormFieldLabel>Grade</FormFieldLabel>
-            <Input value={formData.agreementId} id="agreementId" onChange={handleFormDataChange}></Input>
+            <Input value={formData.grade} id="grade" onChange={handleFormDataChange}></Input>
             {/* <FormFieldHelperText>Input any relevant Data</FormFieldHelperText> */}
           </FormField>
         </GridItem>

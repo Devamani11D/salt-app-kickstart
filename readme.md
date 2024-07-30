@@ -15,7 +15,7 @@ This will prompt you with few questions to gather details about the app and then
 
 ## Video Demonstration
 <div align="center">
-<a href="https://drive.google.com/file/d/1n9vpbLMB3yBoGzmRJd2RxG8EkK0tkl-t/view?usp=sharing">
+<a href="https://drive.google.com/file/d/1HYpfvRXZ8Uiifw7D1QQVQSe96xb1LwZK/view?usp=sharing">
   <img src="/video-thumbnail.png" alt="Demonstration of the package" width="600"/>
 </a>
 </div>
@@ -36,6 +36,11 @@ Using Salt App Kickstart, you can:
 - **Template Support**: Choose between different templates to kickstart your project.
 - **GitHub Integration**: Optionally push your new project to a GitHub repository.
 
+## Salt Design System
+The Salt Design System is a robust framework designed to create consistent and reusable components across web applications. You can learn more about the Salt Design System [here](https://www.saltdesignsystem.com/salt/index).
+
+In the templates provided by salt-app-kickstart, the Salt Design System is integrated to ensure that you have a cohesive and efficient starting point for your projects. This includes pre-configured components and styles that adhere to the Salt Design System guidelines.
+
 ## Contributing
 
 Contributions are welcome! Please check out the [Contributing Guide](CONTRIBUTING.md) for more details.
@@ -44,3 +49,6 @@ Contributions are welcome! Please check out the [Contributing Guide](CONTRIBUTIN
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 `
+
+## Contact
+For any questions or suggestions, please feel free to [contact us](mailto:duddekuntadevamani@gmail.com).
