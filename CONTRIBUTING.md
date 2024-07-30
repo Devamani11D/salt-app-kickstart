@@ -31,7 +31,7 @@ This section guides you on how to suggest enhancements.
 
 This section guides you on how to submit pull requests.
 
-- Fork the repository and create your branch from `master`.
+- Fork the repository and create your branch from `main`.
 - If you've added code that should be tested, add tests.
 - Ensure the test suite passes.
 - Make sure your code lints.
