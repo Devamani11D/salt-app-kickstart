@@ -1,8 +1,8 @@
-# Contributing to Create Salt App
+# Contributing to Salt App Kickstart
 
 First off, Thank you for considering contributing to our project! Your time and effort are greatly appreciated.
 
-The following is a set of guidelines for contributing to Create Salt App. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
+The following is a set of guidelines for contributing to Salt App KickStart. These are mostly guidelines, not rules. Use your best judgment, and feel free to propose changes to this document in a pull request.
 
 ## How Can I Contribute?
 
@@ -10,11 +10,11 @@ The following is a set of guidelines for contributing to Create Salt App. These 
 
 This section guides you on how to report bugs.
 
-- Ensure the bug was not already reported by searching on GitHub under [Issues](https://github.com/Devamani11D/create-salt-app/issues).
+- Ensure the bug was not already reported by searching on GitHub under [Issues](https://github.com/Devamani11D/salt-app-kickstart/issues).
 - If you're unable to find an open issue addressing the problem, open a new one. Be sure to include:
   - A descriptive title and a summary.
   - Steps to reproduce the bug.
-  - The version of Create Salt App you are using.
+  - The version of Salt App Kickstart you are using.
   - Any other details that you think are relevant.
 
 ### Suggesting Enhancements
@@ -72,6 +72,6 @@ By participating in this project, you agree to abide by our [Code of Conduct](CO
 8. Open a pull request and describe your changes.
 
 ## Community
-Feel free to join our community discussions in the [Issues](https://github.com/Devamani11D/create-salt-app/issues) and [Pull Requests](https://github.com/Devamani11D/create-salt-app/pulls) sections of the repository.
+Feel free to join our community discussions in the [Issues](https://github.com/Devamani11D/salt-app-kickstart/issues) and [Pull Requests](https://github.com/Devamani11D/salt-app-kickstart/pulls) sections of the repository.
 
 Thank you for your contribution!
