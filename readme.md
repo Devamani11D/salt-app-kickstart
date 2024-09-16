@@ -15,7 +15,7 @@ This will prompt you with few questions to gather details about the app and then
 
 ## Video Demonstration
 <div align="center">
-<a href="https://drive.google.com/file/d/1HYpfvRXZ8Uiifw7D1QQVQSe96xb1LwZK/view?usp=sharing">
+<a href="https://drive.google.com/file/d/1JIBCPyL2K3Ta3AOMTqt7BuqHjlnxS7m3/view?usp=sharing">
   <img src="/video-thumbnail.png" alt="Demonstration of the package" width="600"/>
 </a>
 </div>
