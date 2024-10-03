@@ -38,19 +38,96 @@ npx salt-app-kickstart@latest
 The generated project structure includes:
 
 ```plaintext
-my-salt-app/
-├── public/             # Static files (index.html, icons, etc.)
-├── src/
-│   ├── components/     # Reusable components like grids, dashboards
-│   ├── pages/          # App pages (Home, Dashboard, etc.)
-│   ├── styles/         # Global styles
-│   ├── App.js          # Starting point of the app
-│   └── index.js        # Main entry point (React)
-├── .gitignore          # Files to ignore in Git
-├── package.json        # Project scripts & dependencies
-└── README.md           # Project information
+salt-app-kickstart/
+├── templates/                  # Various project templates
+├── .gitignore                   # Files to be ignored by Git
+├── CODE_OF_CONDUCT.md           # Contributor code of conduct
+├── CONTRIBUTING.md              # Contribution guidelines
+├── KNOWN_ISSUES_AND_TASKS.md    # Document listing known issues
+├── LICENSE                      # License details
+├── check_install.js             # Script to verify installation prerequisites
+├── cli.js                       # Main entry point for the CLI tool
+├── copy_templates.js            # Utility for copying templates
+├── exec_childprocess.js         # Handles child processes
+├── index.html                   # Main HTML file
+├── index.js                     # Main application logic
+├── install_dependencies.js       # Manages package installations
+├── package-lock.json            # Dependency lock file
+├── package.json                 # Project metadata and dependencies
+├── push_to_github.js            # Pushes project to GitHub
+├── readme.md                    # Project documentation
+├── run_in_localhost.js          # Launches app locally
+└── video-thumbnail.png          # Thumbnail for demo video
+
 ```
-- **Starting Point**: `src/index.js` bootstraps the app, initializing the React application and rendering the root component, which is typically `App.js`. This file is responsible for managing the application's routing and core functionality, ensuring a seamless user experience as users navigate through different views and components.
+- **Starting Point**:
+  The entry point of the application is `cli.js`, which initializes the app and serves as the central hub for managing various functionalities. From `cli.js`, different functions are called, leading to the       
+  execution of various scripts and modules. This structure ensures efficient routing and core functionality, allowing for a seamless user experience as users navigate through different components and views     
+  within the application.
+
+
+- **Project Flowchart**:
+  ```
+  +-----------------------------------+
+  |         Salt App Kickstart        |
+  +-----------------------------------+
+                  |
+                  | 
+                  v
+  +-----------------------------------+
+  |               cli.js              |
+  +-----------------------------------+
+  | main entry point                  |
+  +-----------------------------------+
+                  |
+                  | Calls
+                  v
+  +-----------------------------------+
+  |       Various Utility Scripts     |
+  +-----------------------------------+
+  | check_install.js                  |
+  | copy_templates.js                 |
+  | exec_childprocess.js              |
+  | install_dependencies.js           |
+  | push_to_github.js                 |
+  +-----------------------------------+
+                  |
+                  v
+  +-----------------------------------+
+  |             index.js              |
+  +-----------------------------------+
+  | main application logic            |
+  +-----------------------------------+
+                  |
+                  v
+  +-----------------------------------+
+  |            index.html             |
+  +-----------------------------------+
+  | main HTML file                    |
+  +-----------------------------------+
+                  |
+                  v
+  + -----------------------------------+  
+  |          Project Metadata          |
+  +------------------------------------+
+  | package.json                       |
+  | package-lock.json                  |
+  +------------------------------------+
+                  |
+                  v
+  +-----------------------------------+
+  |        Project Documentation      |
+  +-----------------------------------+
+  | README.md                         |
+  | LICENSE                           |
+  | CONTRIBUTING.md                   |
+  | CODE_OF_CONDUCT.md                |
+  | KNOWN_ISSUES_AND_TASKS.md         |
+  | .gitignore                        |
+  +-----------------------------------+
+  ```
+
+  
 
 ## 🔧 Features
 
