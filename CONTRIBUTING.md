@@ -71,6 +71,30 @@ By participating in this project, you agree to abide by our [Code of Conduct](CO
    ```
 8. Open a pull request and describe your changes.
 
+## Running the Project Locally
+Salt App Kickstart is a CLI tool for injecting templates into a React app, launching it locally, and pushing it to GitHub. To run it locally:
+
+Ensure you have Node.js installed on your machine. You can verify it with:
+```bash
+node -v
+```
+
+Clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/your-username/salt-app-kickstart.git
+cd salt-app-kickstart
+npm install
+```
+
+Run the application:
+
+```bash
+npm start
+```
+
+This will execute the CLI tool (cli.js), which will inject the templates into your React app and launch it on localhost.
+
 ## Community
 Feel free to join our community discussions in the [Issues](https://github.com/Devamani11D/salt-app-kickstart/issues) and [Pull Requests](https://github.com/Devamani11D/salt-app-kickstart/pulls) sections of the repository.
 
