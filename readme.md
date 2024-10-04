@@ -19,7 +19,7 @@ npx salt-app-kickstart@latest
 - It will install all necessary dependencies for a smooth development experience.
 - Finally, your app will launch on `localhost`, allowing you to start coding immediately!
 
-## Video Demonstration
+## 🎥 Video Demonstration
 <div align="center">
 <a href="https://drive.google.com/file/d/1JIBCPyL2K3Ta3AOMTqt7BuqHjlnxS7m3/view?usp=sharing" controls autoplay>
   <img src="/video-thumbnail.png" alt="Demonstration of the package" width="600"/>
@@ -35,7 +35,7 @@ npx salt-app-kickstart@latest
 
 ## 🛠 Project Structure
 
-The generated project structure includes:
+### Current Project Structure
 
 ```plaintext
 salt-app-kickstart/
@@ -49,25 +49,42 @@ salt-app-kickstart/
 ├── cli.js                       # Main entry point for the CLI tool
 ├── copy_templates.js            # Utility for copying templates
 ├── exec_childprocess.js         # Handles child processes
-├── index.html                   # Main HTML file
-├── index.js                     # Main application logic
 ├── install_dependencies.js       # Manages package installations
-├── package-lock.json            # Dependency lock file
 ├── package.json                 # Project metadata and dependencies
+├── package-lock.json            # Dependency lock file
 ├── push_to_github.js            # Pushes project to GitHub
 ├── readme.md                    # Project documentation
 ├── run_in_localhost.js          # Launches app locally
 └── video-thumbnail.png          # Thumbnail for demo video
-
 ```
+
+## Generated Project Structure
+```
+my-app/                         # Your newly created app
+├── public/                     # Static files for your app
+├── src/                        # Source code of your app
+│   ├── templates/              # Various app templates
+│   ├── App.css                 # Main styles
+│   ├── App.js                  # Main application logic
+│   ├── App.test.js             # Test cases for the main app
+│   ├── index.css               # Styles for the index
+│   ├── index.html              # Main HTML file to be served (copied from the current structure)
+│   ├── index.js                # Main entry point for the app (copied from the current structure)
+│   ├── logo.svg                # Logo for the app
+│   ├── reportWebVitals.js      # Performance reporting
+│   └── setupTests.js           # Setup for testing
+├── package-lock.json           # Dependency lock file
+├── package.json                # Project metadata and dependencies
+└── README.md                   # Project documentation
+```
+
 - **Starting Point**:
-  The entry point of the application is `cli.js`, which initializes the app and serves as the central hub for managing various functionalities. From `cli.js`, different functions are called, leading to the       
-  execution of various scripts and modules. This structure ensures efficient routing and core functionality, allowing for a seamless user experience as users navigate through different components and views     
-  within the application.
+  The entry point of the application is `cli.js`, which contains command's abstract logic to initiate the setup process. From `cli.js`, different functions are called to execute various utility scripts, leading to the generation of the project structure. Key files, such as `index.js` and `index.html`, are copied from the current project structure to the newly created app, ensuring that users have a solid foundation to start their development.
 
 
-- **Project Flowchart**:
-  ```
+
+## 🛠 Project Flowchart
+```plaintext
   +-----------------------------------+
   |         Salt App Kickstart        |
   +-----------------------------------+
@@ -77,7 +94,8 @@ salt-app-kickstart/
   +-----------------------------------+
   |               cli.js              |
   +-----------------------------------+
-  | main entry point                  |
+  |        main entry point           |
+  |(contains command's abstract logic)|
   +-----------------------------------+
                   |
                   | Calls
@@ -94,20 +112,20 @@ salt-app-kickstart/
                   |
                   v
   +-----------------------------------+
-  |             index.js              |
+  |             index.js              |  <--- Copied to the generated structure
   +-----------------------------------+
   | main application logic            |
   +-----------------------------------+
                   |
                   v
   +-----------------------------------+
-  |            index.html             |
+  |            index.html             |  <--- Copied to the generated structure
   +-----------------------------------+
   | main HTML file                    |
   +-----------------------------------+
                   |
                   v
-  + -----------------------------------+  
+  +-----------------------------------+  
   |          Project Metadata          |
   +------------------------------------+
   | package.json                       |
@@ -125,8 +143,7 @@ salt-app-kickstart/
   | KNOWN_ISSUES_AND_TASKS.md         |
   | .gitignore                        |
   +-----------------------------------+
-  ```
-
+```
   
 
 ## 🔧 Features
