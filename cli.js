@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import {Command} from 'commander'
-import chalk from 'chalk'
+import cfonts from 'cfonts';
 import readline from 'readline'
 import inquirer from 'inquirer'
 import install_dependencies from './install_dependencies.js';
@@ -17,6 +17,18 @@ const rl=readline.createInterface({
     output:process.stdout
 });
 const program=new Command();
+
+cfonts.say('Salt Design System', {
+  font: 'block',         // define the font style
+  align: 'center',       // center alignment
+  colors: ['black', 'green'], // gradient colors
+  background: 'transparent',   // background color
+  letterSpacing: 1,      // letter spacing
+  lineHeight: 1,         // line height
+  space: true,           // adds a border between letters
+  maxLength: '0',        // max length of a line
+});
+
 program
 .version('1.0.0')
 .description('A simple CLI tool to create a salt App using Salt Design System By J.P.Morgan Chase & Co.');
@@ -182,6 +194,3 @@ if (!process.argv.slice(2).length) {
     process.argv.push('ask');
   }
 program.parse(process.argv);
-
-
-
