@@ -153,7 +153,7 @@ program
 .description("Please provide the information for the below questions")
 .action(()=>{
     let responses={};
-    const askQuestion=async (index)=>{
+    const askQuestion= async (index)=>{
         await inquirer.prompt(questions).then((answers)=>{
             responses=answers;
         }).catch((error)=>{
@@ -164,10 +164,16 @@ program
                 // Something else went wrong
                 console.log('Unknown error.');
               }
-        });
-            try{
-             await install_dependencies(responses.appName);
-             await copyFolder(responses.appName,responses.template_choices);
+        });try {
+          await install_dependencies(responses.appName);
+          await copyFolder(responses.appName, responses.template_choices);
+
+          // Logic to create or overwrite index.html in the public folder
+          const publicPath = path.join(process.cwd(), responses.appName, 'public', 'index.html');
+          fs.ensureDirSync(path.join(process.cwd(), responses.appName, 'public'));
+          fs.writeFileSync(publicPath, content, 'utf8');
+          console.log(`index.html has been created in the public folder.`);
+          
              if(responses.push_to_github){
               checkAndInstall('git',installGitCommand,platform);
               checkAndInstall('gh',installGhCommand,platform);
@@ -186,7 +192,7 @@ program
             }catch(error){
                 console.log("Error : "+error.message);
             }
-    };
+          };
     askQuestion(0);
 });
 if (!process.argv.slice(2).length) {
