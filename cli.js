@@ -69,7 +69,7 @@ const questions=[
         type: 'list', 
         name: 'template_choices', 
         message: "Choose the templates that you need in your app", 
-        choices: [ "Form", "AgGrid","AppHeader"],
+        choices: [ "Form", "AgGrid","AppHeader","Login"],
         default:"Form"
      },
      {
