@@ -69,7 +69,7 @@ const questions=[
         type: 'list', 
         name: 'template_choices', 
         message: "Choose the templates that you need in your app", 
-        choices: [ "Form", "AgGrid","AppHeader"],
+        choices: [ "Form", "AgGrid","AppHeader","Login"],
         default:"Form"
      },
      {
@@ -154,44 +154,46 @@ program
 .action(()=>{
     let responses={};
     const askQuestion= async (index)=>{
-        await inquirer.prompt(questions).then((answers)=>{
+        await inquirer.prompt(questions).then(async (answers)=>{
             responses=answers;
+            try {
+              await install_dependencies(responses.appName);
+              await copyFolder(responses.appName, responses.template_choices);
+    
+              // Logic to create or overwrite index.html in the public folder
+              const publicPath = path.join(process.cwd(), responses.appName, 'public', 'index.html');
+              fs.ensureDirSync(path.join(process.cwd(), responses.appName, 'public'));
+              fs.writeFileSync(publicPath, content, 'utf8');
+              console.log(`index.html has been created in the public folder.`);
+              
+                 if(responses.push_to_github){
+                  checkAndInstall('git',installGitCommand,platform);
+                  checkAndInstall('gh',installGhCommand,platform);
+                 let content=`GITHUB_TOKEN=${responses.token}`
+                 let envPath=process.cwd()+path.sep+".env";
+                 fs.writeFile(envPath, content, 'utf-8', (err) => {
+                    if (err) {
+                      console.error(`Error writing to .env: ${err.message}`);
+                      return;
+                    }
+                    console.log(`Content has been successfully written to ${envPath}`);
+                  });
+                  await push_to_github_remote(responses.appName,responses.token,responses.github_username,responses.github_repository_name,responses.github_branch_name,responses.github_commitMessage);
+                }
+                await run_in_localhost(responses.appName);
+                }catch(error){
+                    console.log("Error : "+error.message);
+                }
+
         }).catch((error)=>{
             if (error.isTtyError) {
                 console.log('ttyerror');
                 // Prompt couldn't be rendered in the current environment
               } else {
                 // Something else went wrong
-                console.log('Unknown error.');
+                console.log(`Program has been terminated. ${error}`);
               }
-        });try {
-          await install_dependencies(responses.appName);
-          await copyFolder(responses.appName, responses.template_choices);
-
-          // Logic to create or overwrite index.html in the public folder
-          const publicPath = path.join(process.cwd(), responses.appName, 'public', 'index.html');
-          fs.ensureDirSync(path.join(process.cwd(), responses.appName, 'public'));
-          fs.writeFileSync(publicPath, content, 'utf8');
-          console.log(`index.html has been created in the public folder.`);
-          
-             if(responses.push_to_github){
-              checkAndInstall('git',installGitCommand,platform);
-              checkAndInstall('gh',installGhCommand,platform);
-             let content=`GITHUB_TOKEN=${responses.token}`
-             let envPath=process.cwd()+path.sep+".env";
-             fs.writeFile(envPath, content, 'utf-8', (err) => {
-                if (err) {
-                  console.error(`Error writing to .env: ${err.message}`);
-                  return;
-                }
-                console.log(`Content has been successfully written to ${envPath}`);
-              });
-              await push_to_github_remote(responses.appName,responses.token,responses.github_username,responses.github_repository_name,responses.github_branch_name,responses.github_commitMessage);
-            }
-            await run_in_localhost(responses.appName);
-            }catch(error){
-                console.log("Error : "+error.message);
-            }
+        });
           };
     askQuestion(0);
 });
