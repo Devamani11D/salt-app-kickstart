@@ -34,6 +34,13 @@ async function copyFolder(projectName,template_choices) {
             'return <AppHeader/>;\n'+
             '}\n'+
             'export default App;\n'
+      ,
+        login:
+            'import Login from "./templates/login/Login.js";\n'+
+            'function App() {\n'+
+            'return <Login/>;\n'+
+            '}\n'+
+            'export default App;\n'
     }
     let appJsPath=basePath+path.sep+destinationPath+path.sep+"App.js";
     let content=app_file_content[template_choices.toLowerCase()]; 
