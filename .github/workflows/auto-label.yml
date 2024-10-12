@@ -4,7 +4,7 @@ on:
   issues:
     types: [opened, reopened, edited]
   pull_request:
-    types: [merged]
+    types: [opened, reopened, edited, synchronize, closed]
 
 jobs:
   label_issue:
@@ -32,6 +32,7 @@ jobs:
             
   label_pr:
     runs-on: ubuntu-latest
+    needs: label_issue
     permissions:
       issues: read
       pull-requests: write
@@ -54,7 +55,7 @@ jobs:
               const issueLabels = issue.data.labels.map(label => label.name);
 
               if(issueLabels.length > 0) {
-                await github.rest.issues.addLabels({
+                await github.rest.pulls.addLabels({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   issue_number: pr.number,
