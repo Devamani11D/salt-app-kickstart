@@ -3,12 +3,15 @@ name: Auto Label Issue
 on:
   issues:
     types: [opened, reopened, edited]
+  pull_request:
+    types: [merged]
 
 jobs:
   label_issue:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+      pull-requests: write
     steps:
       - name: Label Issue
         uses: actions/github-script@v6
@@ -19,18 +22,44 @@ jobs:
             const issueBody = issue.body ? issue.body.toLowerCase() : '';
             const issueTitle = issue.title.toLowerCase();
             
-            // Add gssoc label to all issues
+            
             await github.rest.issues.addLabels({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issue.number,
               labels: ['gssoc-ext','hacktoberfest','hacktoberfest-accepted']
             });
-            const addLabel = async (label) => {
-              await github.rest.issues.addLabels({
+            
+  label_pr:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: read
+      pull-requests: write
+    steps:
+      - name: Label Pull Request with Issue Labels
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const pr = context.payload.pull_request;
+            const issueNumber = pr.body.match(/#(\d+)/);
+            if(issueNumber){
+              const issue = await github.rest.issues.get({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: issue.number,
-                labels: [label]
+                issue_number: issueNumber[1]
               });
-            };
+
+              const issueLabels = issue.data.labels.map(label => label.name);
+
+              if(issueLabels.length > 0) {
+                await github.rest.issues.addLabels({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: pr.number,
+                  labels: issueLabels
+                });
+              }
+            }
+  
