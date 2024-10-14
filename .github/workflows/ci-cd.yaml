@@ -1,0 +1,142 @@
+name: Advanced CI/CD for Salt App Kickstart
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    name: Build and Test on Node.js ${{ matrix.node-version }}
+    runs-on: ubuntu-latest
+
+    # Run the job on multiple Node.js versions
+    strategy:
+      matrix:
+        node-version: [14, 16, 18]
+
+    steps:
+      # Step 1: Checkout code from the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Cache node_modules to speed up installation
+      - name: Cache node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-modules-${{ matrix.node-version }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            node-modules-${{ matrix.node-version }}-
+
+      # Step 3: Set up the specific Node.js version from the matrix
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 5: Run linter to check code quality
+      - name: Run linter
+        run: npm run lint
+
+      # Step 6: Run tests with coverage reporting
+      - name: Run tests
+        run: npm run test -- --coverage
+
+      # Step 7: Build the application
+      - name: Build application
+        run: npm run build
+
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      # Step 1: Checkout the latest code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4: Build the project for production
+      - name: Build for production
+        run: npm run build
+
+      # Step 5: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+
+  deploy-to-external:
+    name: Deploy to Vercel or Netlify
+    runs-on: ubuntu-latest
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      # Step 1: Deploy to Vercel
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: '--prod'
+          working-directory: ./build
+        env:
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+
+      # Step 2: Deploy to Netlify (optional if you prefer Netlify over Vercel)
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.2.3
+        with:
+          publish-dir: './build'
+          production-deploy: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+  notifications:
+    name: Notify on Failure
+    runs-on: ubuntu-latest
+    if: failure()
+
+    steps:
+      # Step 1: Send email notification
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: CI/CD Pipeline Failed for ${{ github.repository }}
+          to: recipient@example.com
+          body: Build failed. Please check the GitHub Actions log.
+
+      # Step 2: Optionally send a Slack notification
+      - name: Send Slack notification
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
