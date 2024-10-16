@@ -19,32 +19,44 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const [error, setError] = useState("");
 
-
-  const [error,setError]=useState();
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Username:", username);
-    console.log("Password:", password);
-    console.log("Remember Me:", rememberMe);
+    
+    // Validation
+    if (username.length < 3) {
+      setError("Username must be at least 3 characters long");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long");
+      return;
+    }
 
+    // Clear any previous errors
+    setError("");
+
+    // Existing code for submission
     axiosInstance
-        .post(`token/`, {
-            username: username,
-            password: password,
-        })
-        .then((res) => {
-            localStorage.setItem('access_token', res.data.access);
-            localStorage.setItem('refresh_token', res.data.refresh);
-            axiosInstance.defaults.headers['Authorization'] =
-                'JWT ' + localStorage.getItem('access_token');
-                history.push("/home");
-            
-        }, reason => {
-  console.error(reason); // Error!
-setError('Invalid Username or Password')
-});
-};
+      .post(`token/`, {
+        username: username,
+        password: password,
+      })
+      .then(
+        (res) => {
+          localStorage.setItem('access_token', res.data.access);
+          localStorage.setItem('refresh_token', res.data.refresh);
+          axiosInstance.defaults.headers['Authorization'] =
+            'JWT ' + localStorage.getItem('access_token');
+          history.push("/home");
+        },
+        (reason) => {
+          console.error(reason);
+          setError('Invalid Username or Password');
+        }
+      );
+  };
 
   return (
     <FlexLayout
@@ -102,6 +114,13 @@ setError('Invalid Username or Password')
 
           <form onSubmit={handleSubmit} style={{ padding: "1.5rem" }}>
             <StackLayout gap={4}>
+              {/* Display error message if there's an error */}
+              {error && (
+                <Text styleAs="caption" style={{ color: "red", textAlign: "center" }}>
+                  {error}
+                </Text>
+              )}
+
               {/* Username Field */}
               <FormField label="Username" labelPlacement="top" required>
                 <Input
