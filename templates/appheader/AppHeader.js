@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useResponsiveProp } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BorderItem,
   BorderLayout,
@@ -8,41 +8,56 @@ import {
   NavigationItem,
   FlexItem,
   Drawer,
-  Text,
 } from "@salt-ds/core";
 import { MenuIcon, CloseIcon, UserBadgeIcon } from "@salt-ds/icons";
+
 const AppHeader = () => {
   const [offset, setOffset] = useState(0);
   const isMobile = false;
+
   const setScroll = () => {
     setOffset(window.scrollY);
   };
+
   useEffect(() => {
     window.addEventListener("scroll", setScroll);
     return () => {
       window.removeEventListener("scroll", setScroll);
     };
   }, []);
+
   const DesktopAppHeader = ({ items, utilities }) => {
     const [active, setActive] = useState(items?.[0]);
+
     return (
       <header>
         <FlexLayout
           style={{
-            paddingLeft: "var(--salt-spacing-300)",
-            paddingRight: "var(--salt-spacing-300)",
-            backgroundColor: "var(--salt-container-primary-background)",
+            padding: "1rem 2rem",
+            background:
+              "linear-gradient(135deg, var(--salt-color-blue-10), var(--salt-color-purple-20))",
             position: "fixed",
             width: "100%",
-            boxShadow:
-              offset > 0 ? "var(--salt-overlayable-shadow-scroll)" : "none",
-            borderBottom:
-              "var(--salt-size-border) var(--salt-container-borderStyle) var(--salt-separable-primary-borderColor)",
+            boxShadow: offset > 0 ? "0 8px 16px rgba(0, 0, 0, 0.1)" : "none",
+            borderBottom: "1px solid rgba(0, 0, 0, 0.1)",
+            zIndex: 1000,
           }}
           justify="space-between"
+          align="center"
           gap={3}
         >
-          <FlexItem align="center">Salt APP</FlexItem>
+          <FlexItem align="center">
+            <h1
+              style={{
+                color: "#fff",
+                fontWeight: "bold",
+                fontSize: "1.5rem",
+              }}
+            >
+              Salt APP
+            </h1>
+          </FlexItem>
+
           <nav>
             <ul
               style={{
@@ -58,6 +73,18 @@ const AppHeader = () => {
                     active={active === item}
                     href="#"
                     onClick={() => setActive(item)}
+                    style={{
+                      color: active === item ? "#6a5acd" : "#fff",
+                      padding: "0.5rem 1rem",
+                      transition: "color 0.3s ease",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "#4b6cb7")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color =
+                        active === item ? "#6a5acd" : "#fff")
+                    }
                   >
                     {item}
                   </NavigationItem>
@@ -65,8 +92,9 @@ const AppHeader = () => {
               ))}
             </ul>
           </nav>
+
           <FlexItem align="center">
-            <StackLayout direction="row" gap={1}>
+            <StackLayout direction="row" gap={2}>
               {utilities?.map((utility) => (
                 <Button key={utility.key} variant="secondary">
                   {utility.icon}
@@ -78,72 +106,60 @@ const AppHeader = () => {
       </header>
     );
   };
+
   const MobileAppHeader = ({ items, utilities }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [active, setActive] = useState(items?.[0]);
-    const handleClick = (item: string) => {
-      setActive(item);
-      setDrawerOpen(false);
-    };
+
     return (
       <header>
-        <StackLayout
-          direction="row"
-          gap={3}
+        <FlexLayout
           style={{
             width: "100%",
-            height: "calc(var(--salt-size-base) + var(--salt-spacing-200))",
-            backgroundColor: "var(--salt-container-primary-background)",
-            zIndex: "calc(var(--salt-zIndex-drawer) + 1)",
+            height: "64px",
+            background:
+              "linear-gradient(135deg, var(--salt-color-blue-10), var(--salt-color-purple-20))",
             position: "fixed",
-            borderBottom:
-              "var(--salt-size-border) var(--salt-separable-borderStyle) var(--salt-separable-primary-borderColor)",
-            boxShadow: offset > 0 ? "var(--salt-shadow-1)" : "none",
+            top: 0,
+            zIndex: 1000,
+            borderBottom: "1px solid rgba(0, 0, 0, 0.1)",
           }}
+          justify="space-between"
+          align="center"
+          gap={3}
         >
-          <FlexItem
-            style={{
-              justifyContent: "center",
-              display: "flex",
-              paddingLeft: "var(--salt-spacing-100)",
-            }}
-          >
-            {!drawerOpen && (
-              <Button
-                onClick={() => setDrawerOpen(true)}
-                style={{
-                  alignSelf: "center",
-                }}
-                variant="secondary"
-              >
-                <MenuIcon />
-              </Button>
-            )}
-            {drawerOpen && (
-              <Button
-                onClick={() => setDrawerOpen(false)}
-                style={{
-                  alignSelf: "center",
-                }}
-                variant="secondary"
-              >
-                <CloseIcon />
-              </Button>
-            )}
+          <FlexItem>
+            <Button
+              onClick={() => setDrawerOpen(!drawerOpen)}
+              variant="secondary"
+            >
+              {drawerOpen ? <CloseIcon /> : <MenuIcon />}
+            </Button>
           </FlexItem>
-          <FlexItem align="center">Salt APP</FlexItem>
-        </StackLayout>
+
+          <FlexItem align="center">
+            <h1
+              style={{
+                color: "#fff",
+                fontWeight: "bold",
+                fontSize: "1.25rem",
+              }}
+            >
+              Salt APP
+            </h1>
+          </FlexItem>
+        </FlexLayout>
+
         <Drawer
           style={{
-            paddingTop: "calc(var(--salt-size-base) + var(--salt-spacing-200))",
+            background:
+              "linear-gradient(135deg, var(--salt-color-blue-10), var(--salt-color-purple-20))",
+            color: "#fff",
+            paddingTop: "64px",
             paddingLeft: "0",
           }}
           open={drawerOpen}
-          onOpenChange={() => {
-            if (drawerOpen) {
-              setDrawerOpen(false);
-            }
-          }}
+          onOpenChange={() => setDrawerOpen(!drawerOpen)}
         >
           <nav>
             <ul
@@ -159,24 +175,23 @@ const AppHeader = () => {
                     active={active === item}
                     href="#"
                     onClick={() => {
-                      handleClick(item);
-                    }}
-                  >
-                    {item}
-                  </NavigationItem>
-                </li>
-              ))}
-              {utilities?.map((utility) => (
-                <li key={utility.key}>
-                  <NavigationItem
-                    orientation="vertical"
-                    href="#"
-                    onClick={() => {
+                      setActive(item);
                       setDrawerOpen(false);
                     }}
+                    style={{
+                      padding: "1rem",
+                      transition: "color 0.3s ease",
+                      color: active === item ? "#6a5acd" : "#fff",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "#4b6cb7")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color =
+                        active === item ? "#6a5acd" : "#fff")
+                    }
                   >
-                    {utility.icon}
-                    {utility.key}
+                    {item}
                   </NavigationItem>
                 </li>
               ))}
@@ -186,6 +201,7 @@ const AppHeader = () => {
       </header>
     );
   };
+
   const items = ["Home", "About", "Services", "Contact", "Blog"];
   const utilities = [
     {
@@ -193,6 +209,7 @@ const AppHeader = () => {
       key: "User",
     },
   ];
+
   return (
     <BorderLayout>
       <BorderItem position="north">
@@ -205,4 +222,5 @@ const AppHeader = () => {
     </BorderLayout>
   );
 };
+
 export default AppHeader;
