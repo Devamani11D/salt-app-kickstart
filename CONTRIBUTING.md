@@ -47,36 +47,66 @@ This section guides you on how to submit pull requests.
 
 # Project Structure
 
-```bash
-                                      +--------------------+
-                                      |  SALT-APP-KICKSTART|
-                                      +---------+----------+
-                                                |
-      +----------------------------------------+------------------------------------+
-      |                                        |                                    |
-+-----+-----+                          +--------+---------+                +---------+---------+
-|  .github  |                          |     templates    |                |   .gitignore      |
-+-----------+                          +-----------------+                +------------------+
-      |                                         |
-+-----+-----+                 +-----------------+----------------+
-|  check_install.js           |                 |                |
-+------------------+    index.html      other_template_files     |
-|  cli.js          |          +---------------------------------+
-+------------------+
-|  CODE_OF_CONDUCT.md
-+------------------+
-|  CONTRIBUTING.md |   +------------------+    +------------------------+
-+------------------+   |   README.md      |    | Known Issues and Notes |
-|  LICENSE         |   +------------------+    +------------------------+
-+------------------+
-|  copy_templates.js  |                   | +------------------------+
-+------------------+   | install_dependencies.js   | package-lock.json|
-|  exec_childprocess.js|                   | +------------------------+
-+------------------+   | push_to_github.js       +--------------------+
-|  run_in_localhost.js |                   |package.json|
-+----------------------+   | video-thumbnail.png   |
-|   index.js         |
-+--------------------+
+```plaintext
+  +-----------------------------------+
+  |         Salt App Kickstart        |
+  +-----------------------------------+
+                  |
+                  | 
+                  v
+  +-----------------------------------+
+  |             cli.js                |
+  +-----------------------------------+
+  |         main entry point          |
+  +-----------------------------------+
+                  |
+                  | Calls
+                  v
+  +-----------------------------------+
+  |    Various Utility JavaScripts    |
+  +-----------------------------------+
+  |        check_install.js           |
+  |        copy_templates.js          |
+  |      exec_childprocess.js         |
+  |     install_dependencies.js       |
+  |        push_to_github.js          |
+  |       run_in_localhost.js         |
+  +-----------------------------------+
+                  |
+                  v
+  +-----------------------------------+
+  |             index.js              |  
+  +-----------------------------------+   <--- Copied to the generated structure
+  |     main application logic        |
+  +-----------------------------------+
+                  |
+                  v
+  +-----------------------------------+
+  |            index.html             |  
+  +-----------------------------------+   <--- Copied to the generated structure
+  |          main HTML file           |
+  +-----------------------------------+
+                  |
+                  v
+  +-----------------------------------+  
+  |          Project Metadata         |
+  +-----------------------------------+
+  |          package.json             |
+  |        package-lock.json          |
+  +-----------------------------------+
+                  |
+                  v
+  +-----------------------------------+
+  |        Project Documentation      |
+  +-----------------------------------+
+  |           README.md               |
+  |            LICENSE                |
+  |         CONTRIBUTING.md           |
+  |        CODE_OF_CONDUCT.md         |
+  |     KNOWN_ISSUES_AND_TASKS.md     |
+  |           .gitignore              |
+  |       video-thumbnail.png         |
+  +-----------------------------------+
 ```
 
 <br>
