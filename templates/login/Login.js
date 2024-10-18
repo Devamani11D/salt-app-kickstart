@@ -20,6 +20,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,6 +37,9 @@ const Login = () => {
 
     // Clear any previous errors
     setError("");
+
+    // Set loading state to true
+    setIsLoading(true);
 
     // Existing code for submission
     axiosInstance
@@ -55,7 +59,11 @@ const Login = () => {
           console.error(reason);
           setError('Invalid Username or Password');
         }
-      );
+      )
+      .finally(() => {
+        // Set loading state back to false
+        setIsLoading(false);
+      });
   };
 
   return (
@@ -201,6 +209,7 @@ const Login = () => {
                 type="submit"
                 variant="cta"
                 onClick={handleSubmit}
+                disabled={isLoading}
                 style={{
                   width: "100%",
                   padding: "0.75rem",
@@ -212,7 +221,7 @@ const Login = () => {
                   transition: "background 0.3s ease",
                 }}
               >
-                Sign In
+                {isLoading ? "Signing In..." : "Sign In"}
               </Button>
 
               {/* Divider */}
