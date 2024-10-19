@@ -144,6 +144,16 @@ my-app/                         # Your newly created app
   | .gitignore                        |
   +-----------------------------------+
 ```
+## 🛠 Prerequisites
+Ensure the following are installed on your machine:
+- Node.js (v14 or above) https://nodejs.org/en/blog/release/v14.17.3
+- npm (v6 or above)  https://www.npmjs.com/package/npm/v/6.14.6
+
+If you run into issues during setup, try running `check_install.js`:
+
+node check_install.js
+This script will verify your system setup and highlight any missing dependencies.
+
   
 
 ## 🔧 Features
