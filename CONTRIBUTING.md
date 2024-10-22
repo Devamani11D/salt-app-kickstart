@@ -6,6 +6,12 @@ The following is a set of guidelines for contributing to Salt App KickStart. The
 
 <br>
 
+# Code of Conduct
+
+By participating in this project, you agree to abide by our [Code of Conduct](https://github.com/Devamani11D/salt-app-kickstart/blob/main/CODE_OF_CONDUCT.md).
+
+<br>
+
 # How Can I Contribute?
 
 # Reporting Bugs
@@ -81,12 +87,6 @@ Please follow these coding standards:
 
 <br>
 
-# Code of Conduct
-
-By participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md).
-
-<br>
-
 # Getting Started
 
 1. **Star this repository**
@@ -98,13 +98,13 @@ By participating in this project, you agree to abide by our [Code of Conduct](CO
 3. **Clone the forked repository**
 
 ```bash
-git clone https://github.com/<your-github-username>/FinVeda.git
+git clone https://github.com/<your-github-username>/salt-app-kickstart.git
 ```
   
 4. **Navigate to the project directory**
 
 ```bash
-cd FinVeda
+cd salt-app-kickstart
 ```
 
 5. **Create a new branch**
