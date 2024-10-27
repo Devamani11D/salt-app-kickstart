@@ -1,46 +1,18 @@
 <div align="center">
 
-# salt-app-kickstart 📘🖌️
+# 🌟 SALT-APP-KICKSTART 📘🖌️
 
 <img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+salt-app-kickstart!"/>
-</div>
 
-<div align = "center">
-<br>
+![npm](https://img.shields.io/npm/v/salt-app-kickstart?style=flat-square) ![npm](https://img.shields.io/npm/dt/salt-app-kickstart?style=flat-square)
 
-<table align="center">
-    <thead align="center">
-        <tr border: 1px;>
-            <td><b>🌟 Stars</b></td>
-            <td><b>🍴 Forks</b></td>
-            <td><b>🐛 Issues</b></td>
-            <td><b>🔔 Open PRs</b></td>
-            <td><b>🔕 Close PRs</b></td>
-            <td><b>🛠️ Languages</b></td>
-            <td><b>👥 Contributors</b></td>
-        </tr>
-     </thead>
-    <tbody>
-         <tr>
-            <td><img alt="Stars" src="https://img.shields.io/github/stars/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
-            <td><img alt="Forks" src="https://img.shields.io/github/forks/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
-            <td><img alt="Issues" src="https://img.shields.io/github/issues/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
-            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
-           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/Devamani11D/salt-app-kickstart?style=flat&color=critical&logo=github"/></td>
-           <td><img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Devamani11D/salt-app-kickstart?style=flat&color=green&logo=github"></td>
-         <td><img alt="GitHub Contributors count" src="https://img.shields.io/github/contributors/Devamani11D/salt-app-kickstart?style=flat&color=blue&logo=github"/></td>
-        </tr>
-    </tbody>
-</table>
 </div>
-<br>
 
 <!--Line-->
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="900"> 
 
-# 🌟 Salt App Kickstart
 
-![npm](https://img.shields.io/npm/v/salt-app-kickstart?style=flat-square) ![npm](https://img.shields.io/npm/dt/salt-app-kickstart?style=flat-square)
+
 
 Create a new Salt Design System app quickly and easily.
 
@@ -224,9 +196,40 @@ This creates an optimized, production-ready build of your app inside the `build/
 
 The **Salt Design System** is pre-installed, offering reusable components and consistent UI elements for rapid development. With pre-styled components, you can focus on your app's logic and functionality while maintaining a cohesive design throughout your project.
 
+
 ## 🙌 Contributing
 
 We welcome contributions! If you’d like to help improve this project, please check out our [Contributing Guide](CONTRIBUTING.md) for details on how to get involved.
+<div align = "center">
+<br>
+
+<table align="center">
+    <thead align="center">
+        <tr border: 1px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+            <td><b>🛠️ Languages</b></td>
+            <td><b>👥 Contributors</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
+            <td><img alt="Forks" src="https://img.shields.io/github/forks/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
+           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/Devamani11D/salt-app-kickstart?style=flat&color=critical&logo=github"/></td>
+           <td><img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Devamani11D/salt-app-kickstart?style=flat&color=green&logo=github"></td>
+         <td><img alt="GitHub Contributors count" src="https://img.shields.io/github/contributors/Devamani11D/salt-app-kickstart?style=flat&color=blue&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<br>
+
 
 ## 📝 License
 
