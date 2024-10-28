@@ -3,8 +3,31 @@
 # 🌟 SALT-APP-KICKSTART 📘🖌️
 
 <img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+salt-app-kickstart!"/>
+<table align="center">
+    <thead align="center">
+        <tr border: 1px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+            <td><b>🛠️ Languages</b></td>
+            <td><b>👥 Contributors</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
+            <td><img alt="Forks" src="https://img.shields.io/github/forks/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/Devamani11D/salt-app-kickstart?style=flat&logo=github"/></td>
+           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/Devamani11D/salt-app-kickstart?style=flat&color=critical&logo=github"/></td>
+           <td><img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Devamani11D/salt-app-kickstart?style=flat&color=green&logo=github"></td>
+         <td><img alt="GitHub Contributors count" src="https://img.shields.io/github/contributors/Devamani11D/salt-app-kickstart?style=flat&color=blue&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
 
-![npm](https://img.shields.io/npm/v/salt-app-kickstart?style=flat-square) ![npm](https://img.shields.io/npm/dt/salt-app-kickstart?style=flat-square)
 
 </div>
 
