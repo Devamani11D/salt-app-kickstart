@@ -1,11 +1,7 @@
 name: Auto Label Issue
-
 on:
   issues:
     types: [opened, reopened, edited]
-  pull_request:
-    types: [closed]  # Trigger on pull request closure (which includes merged)
-
 jobs:
   label_issue:
     runs-on: ubuntu-latest
@@ -22,63 +18,18 @@ jobs:
             const issueBody = issue.body ? issue.body.toLowerCase() : '';
             const issueTitle = issue.title.toLowerCase();
             
-            const labelsToAdd = [];
-
-            // Example keywords to check in the body and title
-            if (issueBody.includes('keyword1')) {
-              labelsToAdd.push('label1');
-            }
-            if (issueTitle.includes('keyword2')) {
-              labelsToAdd.push('label2');
-            }
-
-            // Only add labels if there are any to add
-            if (labelsToAdd.length > 0) {
-              try {
-                await github.rest.issues.addLabels({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  issue_number: issue.number,
-                  labels: labelsToAdd
-                });
-              } catch (error) {
-                console.error("Error adding labels to the issue:", error);
-              }
-            }
-
-  label_pr:
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-    steps:
-      - name: Label Pull Request with Issue Labels
-        if: github.event.action == 'closed' && github.event.pull_request.merged == true
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const pr = context.payload.pull_request;
-            const issueNumberMatch = pr.body.match(/#(\d+)/);
-            if (issueNumberMatch) {
-              const issueNumber = issueNumberMatch[1];
-
-              try {
-                const issue = await github.rest.issues.get({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  issue_number: issueNumber
-                });
-
-                const issueLabels = issue.data.labels.map(label => label.name);
-                if (issueLabels.length > 0) {
-                  await github.rest.issues.addLabels({
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    issue_number: pr.number,
-                    labels: issueLabels
-                  });
-                }
-              } catch (error) {
-                console.error("Error adding labels to the PR:", error);
-              }
-            }
+            // Add gssoc label to all issues
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: ['gssoc-ext','hacktoberfest-accepted']
+            });
+            const addLabel = async (label) => {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: [label]
+              });
+            };
