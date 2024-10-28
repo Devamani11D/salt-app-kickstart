@@ -77,6 +77,7 @@ const questions = [
       "AppHeader",
       "Login",
       "Carousel",
+      "Accordian",
       "notification",
     ],
     default: "Form",
