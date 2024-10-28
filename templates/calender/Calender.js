@@ -19,7 +19,10 @@ const CalendarComponent = () => {
 
   // Function to handle month change
   const changeMonth = (offset) => {
-    const newDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + offset);
+    const newDate = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + offset
+    );
     setCurrentDate(newDate);
   };
 
@@ -55,10 +58,11 @@ const CalendarComponent = () => {
         padding: "15px",
         border: "1px solid rgba(0, 0, 0, 0.2)",
         borderRadius: "8px",
-        backgroundColor: "rgba(255, 255, 255, 0.95)",
+        background: "linear-gradient(135deg, var(--salt-color-blue-10), var(--salt-color-purple-20))",
         boxShadow: "0 8px 16px rgba(0, 0, 0, 0.1)",
         fontFamily: "Arial, sans-serif",
         textAlign: "center",
+        color: "black",
       }}
     >
       <div
@@ -88,7 +92,7 @@ const CalendarComponent = () => {
         }}
       >
         {daysOfWeek.map((day, index) => (
-          <div key={index} style={{ fontWeight: "bold", color: "#666" }}>
+          <div key={index} style={{ fontWeight: "bold", color: "black" }}>
             {day}
           </div>
         ))}
@@ -107,21 +111,29 @@ const CalendarComponent = () => {
                 padding: "10px",
                 borderRadius: "5px",
                 backgroundColor: isToday
-                  ? "#007bff"
+                  ? "#ffd700"
                   : isSelected
-                  ? "#e0e0e0"
-                  : "#f8f8f8",
-                color: isToday ? "#fff" : "#333",
+                  ? "rgba(255, 255, 255, 0.1)"
+                  : "rgba(255, 255, 255, 0.2)",
+                color: isToday ? "#333" : "#333",
                 cursor: day ? "pointer" : "default",
                 boxShadow: day ? "0 2px 4px rgba(0, 0, 0, 0.1)" : "none",
                 transition: "background-color 0.3s, transform 0.2s",
                 transform: day ? "scale(1)" : "none",
               }}
               onMouseEnter={(e) =>
-                day && (e.currentTarget.style.backgroundColor = isToday ? "#0056b3" : "#d9d9d9")
+                day &&
+                (e.currentTarget.style.backgroundColor = isToday
+                  ? "#ffd700"
+                  : "rgba(255, 255, 255, 0.1)")
               }
               onMouseLeave={(e) =>
-                day && (e.currentTarget.style.backgroundColor = isToday ? "#007bff" : "#f8f8f8")
+                day &&
+                (e.currentTarget.style.backgroundColor = isToday
+                  ? "#ffd700"
+                  : isSelected
+                  ? "rgba(255, 255, 255, 0.3)"
+                  : "rgba(255, 255, 255, 0.1)")
               }
             >
               {day}
@@ -135,12 +147,20 @@ const CalendarComponent = () => {
 
 // Button styles
 const buttonStyle = {
-  backgroundColor: "rgba(0, 0, 0, 0.1)",
+  backgroundColor: "rgba(0, 0, 0, 0.8)",
   border: "none",
   padding: "6px 12px",
   borderRadius: "5px",
   cursor: "pointer",
   fontSize: "16px",
+  color: "#fff",
+  transition: "background-color 0.3s",
+  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+};
+
+// Add hover effect for buttons
+buttonStyle[':hover'] = {
+  backgroundColor: "rgba(0, 0, 0, 0.6)"
 };
 
 // Main Calendar component
