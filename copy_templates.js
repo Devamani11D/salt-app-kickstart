@@ -51,6 +51,13 @@ async function copyFolder(projectName, template_choices) {
         "return <Carousel/>;\n" +
         "}\n" +
         "export default App;\n",
+      // Added content for Accordian
+      accordian:
+        'import Accordian from "./templates/accordian/Accordian.js";\n' +
+        "function App() {\n" +
+        "return <Accordian/>;\n" +
+        "}\n" +
+        "export default App;\n",
       // Added content for Toast
       toast:
         'import React, { useState } from "react";\n' +
