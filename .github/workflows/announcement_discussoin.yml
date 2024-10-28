@@ -19,7 +19,9 @@ jobs:
             -H "Accept: application/vnd.github.v3+json" \
             "https://api.github.com/repos/${{ github.repository }}/contributors" \
             | jq -r '.[].login' | tr '\n' ' ')
-          
+          echo "Contributors:"
+          echo "$CONTRIBUTORS"
+
           echo "::set-output name=contributors::$CONTRIBUTORS"
 
       - name: Create Discussion
