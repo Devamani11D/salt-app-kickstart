@@ -3,11 +3,6 @@
 # 🌟 SALT-APP-KICKSTART 📘🖌️
 
 <img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+salt-app-kickstart!"/>
-<div align="center">
-
-# 🌟 SALT-APP-KICKSTART 📘🖌️
-
-<img  src="https://readme-typing-svg.herokuapp.com?color=45ffaa&center=true&vCenter=true&size=40&width=900&height=80&lines=Welcome+to+salt-app-kickstart!"/>
 
 ![npm](https://img.shields.io/npm/v/salt-app-kickstart?style=flat-square) ![npm](https://img.shields.io/npm/dt/salt-app-kickstart?style=flat-square)
 
