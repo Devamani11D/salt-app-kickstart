@@ -33,9 +33,10 @@ npx salt-app-kickstart@latest
 
 ## 🎥 Video Demonstration
 <div align="center">
-<a href="https://drive.google.com/file/d/1JIBCPyL2K3Ta3AOMTqt7BuqHjlnxS7m3/view?usp=sharing" controls autoplay>
-  <img src="/video-thumbnail.png" alt="Demonstration of the package" width="600"/>
-</a>
+<video width="600" controls autoplay loop muted>
+  <source src="https://drive.google.com/uc?id=1JIBCPyL2K3Ta3AOMTqt7BuqHjlnxS7m3" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 </div>
 
 ## 🌟 Why Salt App Kickstart?
