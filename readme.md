@@ -33,14 +33,11 @@ npx salt-app-kickstart@latest
 
 ## 🎥 Video Demonstration
 <div align="center">
-  <iframe 
-    src="https://drive.google.com/file/d/1JIBCPyL2K3Ta3AOMTqt7BuqHjlnxS7m3/preview" 
-    width="600" 
-    height="400" 
-    allow="autoplay" 
-    frameborder="0">
-  </iframe>
+  <video src="https://github.com/Devamani11D/salt-app-kickstart/assets/video/demo.mp4" controls="controls" muted="muted" playsinline="playsinline" width="600" autoplay>
+  </video>
 </div>
+
+> 💡 Can't see the video? [Watch it on Google Drive](https://drive.google.com/file/d/1JIBCPyL2K3Ta3AOMTqt7BuqHjlnxS7m3/view?usp=sharing)
 
 ## 🌟 Why Salt App Kickstart?
 
