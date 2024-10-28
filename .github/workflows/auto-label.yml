@@ -1,9 +1,7 @@
 name: Auto Label Issue
-
 on:
   issues:
     types: [opened, reopened, edited]
-
 jobs:
   label_issue:
     runs-on: ubuntu-latest
@@ -24,7 +22,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issue.number,
-              labels: ['gssoc-ext','hacktoberfest','hacktoberfest-accepted']
+              labels: ['gssoc-ext','hacktoberfest-accepted']
             });
             const addLabel = async (label) => {
               await github.rest.issues.addLabels({
