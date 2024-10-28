@@ -78,6 +78,7 @@ const questions = [
       "Login",
       "Carousel",
       "Accordian",
+      "Calender",
       "notification",
     ],
     default: "Form",

@@ -58,6 +58,13 @@ async function copyFolder(projectName, template_choices) {
         "return <Accordian/>;\n" +
         "}\n" +
         "export default App;\n",
+      // Added content for Calender
+      calender:
+        'import Calendar from "./templates/calender/Calender.js";\n' +
+        "function App() {\n" +
+        "return <Calendar/>;\n" +
+        "}\n" +
+        "export default App;\n",
       // Added content for Toast
       toast:
         'import React, { useState } from "react";\n' +
