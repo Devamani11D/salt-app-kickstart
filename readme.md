@@ -145,16 +145,16 @@ my-app/                         # Your newly created app
   +------------------------------------+
                   |
                   v
-  +-----------------------------------+
-  |        Project Documentation      |
-  +-----------------------------------+
-  | README.md                         |
-  | LICENSE                           |
-  | CONTRIBUTING.md                   |
-  | CODE_OF_CONDUCT.md                |
-  | KNOWN_ISSUES_AND_TASKS.md         |
-  | .gitignore                        |
-  +-----------------------------------+
+  +-------------------------------------------------+
+  |        Project Documentation                    |
+  +-------------------------------------------------+
+  | README.md                                       |
+  | documentation/LICENSE                           |
+  | documentation/CONTRIBUTING.md                   |
+  | documentation/CODE_OF_CONDUCT.md                |
+  | documentation/KNOWN_ISSUES_AND_TASKS.md         |
+  | .gitignore                                      |
+  +-------------------------------------------------+
 ```
   
 
@@ -199,10 +199,17 @@ The **Salt Design System** is pre-installed, offering reusable components and co
 
 ## 🙌 Contributing
 
-We welcome contributions! If you’d like to help improve this project, please check out our [Contributing Guide](CONTRIBUTING.md) for details on how to get involved.
+We welcome contributions! If you’d like to help improve this project, please check out our [Contributing Guide](./documentation/CONTRIBUTING.md) for details on how to get involved.
 <div align = "center">
 <br>
+  
+## Thanks 🙌 to all the contributors:
+<a href="https://github.com/Devamani11D/salt-app-kickstart/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Devamani11D/salt-app-kickstart" alt="contributors logos"/>
+</a>
+<br/>
 
+## Repository Metrics
 <table align="center">
     <thead align="center">
         <tr border: 1px;>
@@ -233,8 +240,10 @@ We welcome contributions! If you’d like to help improve this project, please c
 
 ## 📝 License
 
-This project is licensed under the **MIT License**. For more details, check the [LICENSE](LICENSE) file in this repository.
+This project is licensed under the **MIT License**. For more details, check the [LICENSE](documentation/LICENSE) file in this repository.
 
 ## ❓ Questions?
 
 If you have any questions or suggestions, feel free to [reach out](mailto:duddekuntadevamani@gmail.com). We’re here to help you build awesome apps with Salt!
+
+Made with ❤️ by [Duddekunta Devamani](https://github.com/Devamani11D).

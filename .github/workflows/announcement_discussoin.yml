@@ -1,0 +1,35 @@
+name: Tag Contributors
+
+on:
+  workflow_dispatch:  # Allows manual trigger from GitHub Actions UI
+
+jobs:
+  tag_contributors:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Fetch Contributors
+        id: fetch_contributors
+        run: |
+          echo "Fetching contributors..."
+          CONTRIBUTORS=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/contributors" \
+            | jq -r '.[].login' | tr '\n' ' ')
+          echo "Contributors:"
+          echo "$CONTRIBUTORS"
+
+          echo "::set-output name=contributors::$CONTRIBUTORS"
+
+      - name: Create Discussion
+        if: steps.fetch_contributors.outputs.contributors != ''
+        run: |
+          echo "Creating discussion and tagging contributors..."
+          DISCUSSION_BODY="${{ steps.fetch_contributors.outputs.contributors }} The Project structure has been changed. So , please pull the latest changes from the main repo and go ahead with your work. Thank you :rocket:"
+          curl -s -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/discussions" \
+            -d "{\"title\": \"Important Announcement\", \"body\": \"$DISCUSSION_BODY\"}"

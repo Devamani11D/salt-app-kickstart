@@ -1,0 +1,60 @@
+name: Label Historical PRs
+
+on:
+  workflow_dispatch:  # Allows manual trigger from GitHub Actions UI
+
+jobs:
+  label_closed_prs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Label closed/merged PRs with issue labels
+      env:
+        GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+      run: |
+        echo "Fetching closed PRs..."
+        # Fetch closed PRs
+        CLOSED_PRS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github.v3+json" \
+          "https://api.github.com/repos/${{ github.repository }}/pulls?state=closed&per_page=100" \
+          | jq -r '.[].number')
+        
+        echo "Closed PRs fetched: $CLOSED_PRS"
+        
+        for PR_NUMBER in $CLOSED_PRS; do
+          echo "Processing PR #$PR_NUMBER"
+          
+          # Check if PR references an issue
+          ISSUES=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER" \
+            | jq -r '.body' | grep -oE '#[0-9]+' | tr -d '#')
+          
+          if [[ -z "$ISSUES" ]]; then
+            echo "No issues referenced in PR #$PR_NUMBER"
+          else
+            echo "Issues referenced in PR #$PR_NUMBER: $ISSUES"
+          fi
+          
+          for ISSUE in $ISSUES; do
+            echo "Fetching labels for Issue #$ISSUE"
+            
+            LABELS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github.v3+json" \
+              "https://api.github.com/repos/${{ github.repository }}/issues/$ISSUE" \
+              | jq -r '.labels[].name')
+            
+            echo "Labels for Issue #$ISSUE: $LABELS"
+            
+            for LABEL in $LABELS; do
+              echo "Applying label '$LABEL' to PR #$PR_NUMBER"
+              curl -s -X POST -H "Authorization: token $GITHUB_TOKEN" \
+                -H "Accept: application/vnd.github.v3+json" \
+                "https://api.github.com/repos/${{ github.repository }}/issues/$PR_NUMBER/labels" \
+                -d "{\"labels\": [\"$LABEL\"]}"
+            done
+          done
+        done
