@@ -32,11 +32,8 @@ npx salt-app-kickstart@latest
 - Finally, your app will launch on `localhost`, allowing you to start coding immediately!
 
 ## 🎥 Video Demonstration
-<div align="center">
-<a href="https://drive.google.com/file/d/1JIBCPyL2K3Ta3AOMTqt7BuqHjlnxS7m3/view?usp=sharing" controls autoplay>
-  <img src="/video-thumbnail.png" alt="Demonstration of the package" width="600"/>
-</a>
-</div>
+
+[![](/video-thumbnail.gif)](https://drive.google.com/file/d/1JIBCPyL2K3Ta3AOMTqt7BuqHjlnxS7m3/view?usp=sharing)
 
 ## 🌟 Why Salt App Kickstart?
 
