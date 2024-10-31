@@ -244,3 +244,9 @@ This project is licensed under the **MIT License**. For more details, check the 
 If you have any questions or suggestions, feel free to [reach out](mailto:duddekuntadevamani@gmail.com). We’re here to help you build awesome apps with Salt!
 
 Made with ❤️ by [Duddekunta Devamani](https://github.com/Devamani11D).
+
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>
