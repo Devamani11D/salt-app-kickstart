@@ -11,6 +11,7 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta
       name="description"
       content="Website created using salt-app-kickstart"
@@ -20,18 +21,78 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+ <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
+  -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=PT+Mono&display=swap" rel="stylesheet" />
+  <!-- 
+    Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+    work correctly both with client-side routing and a non-root public URL.
+    Learn how to configure a non-root public URL by running `npm run build`.
+   -->
+    <title>SALT-APP-KICKSTART</title>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
+    <!-- Basic SEO Meta Tags -->
+    <meta name="description" content="SALT-APP-KICKSTART - Quickly create a new Salt Design System app with ease.">
+    <meta name="keywords" content="Salt Design System, App Kickstart, AGGrid, Dashboard, GitHub Integration">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Your Name or Company">
+
+    <!-- Open Graph Meta Tags (for social sharing) -->
+    <meta property="og:title" content="SALT-APP-KICKSTART">
+    <meta property="og:description" content="Create a new Salt Design System app quickly and easily with pre-configured templates and GitHub integration.">
+    <meta property="og:image" content="%PUBLIC_URL%/thumbnail.png">
+    <meta property="og:url" content="https://yoursite.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SALT-APP-KICKSTART">
+    <meta name="twitter:description" content="Get started with Salt Design System quickly and easily.">
+    <meta name="twitter:image" content="%PUBLIC_URL%/thumbnail.png">
+    <meta name="twitter:site" content="@YourTwitterHandle">
+    <meta name="twitter:creator" content="@YourTwitterHandle">
+
+    <!-- LinkedIn Meta Tags -->
+    <meta property="linkedin:title" content="SALT-APP-KICKSTART">
+    <meta property="linkedin:description" content="A streamlined platform for creating new Salt Design System applications.">
+    <meta property="linkedin:image" content="%PUBLIC_URL%/thumbnail.png">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="fb:app_id" content="your_facebook_app_id">
+
+    <!-- Apple Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SALT-APP-KICKSTART">
+
+    <!-- Application-Specific Meta Tags -->
+    <meta name="application-name" content="SALT-APP-KICKSTART">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="%PUBLIC_URL%/logo144.png">
+    <meta name="msapplication-config" content="%PUBLIC_URL%/browserconfig.xml">
+
+    <!-- Pinterest Meta Tag -->
+    <meta name="pinterest-rich-pin" content="true">
+
+    <!-- Additional Meta Tags for SEO -->
+    <meta name="google-site-verification" content="your-google-site-verification-code">
+    <meta name="yandex-verification" content="your-yandex-verification-code">
+    <meta name="bingbot" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+</head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
