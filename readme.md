@@ -32,11 +32,8 @@ npx salt-app-kickstart@latest
 - Finally, your app will launch on `localhost`, allowing you to start coding immediately!
 
 ## 🎥 Video Demonstration
-<div align="center">
-<a href="https://drive.google.com/file/d/1JIBCPyL2K3Ta3AOMTqt7BuqHjlnxS7m3/view?usp=sharing" controls autoplay>
-  <img src="/video-thumbnail.png" alt="Demonstration of the package" width="600"/>
-</a>
-</div>
+
+[![](/salt-app-kickstart-demo.gif)](https://drive.google.com/file/d/1-0BnTLvQEbWKpRfVME0gOX3hnP3XfsHf/view?usp=sharing)
 
 ## 🌟 Why Salt App Kickstart?
 
@@ -51,36 +48,44 @@ npx salt-app-kickstart@latest
 
 ```plaintext
 salt-app-kickstart/
-├── templates/                  # Various project templates
-├── .gitignore                   # Files to be ignored by Git
-├── CODE_OF_CONDUCT.md           # Contributor code of conduct
-├── CONTRIBUTING.md              # Contribution guidelines
-├── KNOWN_ISSUES_AND_TASKS.md    # Document listing known issues
-├── LICENSE                      # License details
-├── check_install.js             # Script to verify installation prerequisites
+├── templates/                     # Various project templates
+├── utilities                      # Files to be ignored by Git
+  ├── check_install.js             # Script to verify installation prerequisites
+  ├── copy_templates.js            # Utility for copying templates
+  ├── exec_childprocess.js         # Handles child processes
+  ├── install_dependencies.js      # Manages package installations 
+  ├── push_to_github.js            # Pushes project to GitHub
+  ├── run_in_localhost.js          # Launches app locally
+  ├── copy_appheader.js            # copies navbar to generated app
+├──documentation
+  ├──CODE_OF_CONDUCT.md            # Contributor code of conduct
+  ├── CONTRIBUTING.md              # Contribution guidelines
+  ├── KNOWN_ISSUES_AND_TASKS.md    # Document listing known issues
+  ├── LICENSE                      # License details
+├──public
+  ├──index.html                  # File to be copied to generated salt-app
+├──src
+  ├──index.js                    # File to be copied to generated salt-app
 ├── cli.js                       # Main entry point for the CLI tool
-├── copy_templates.js            # Utility for copying templates
-├── exec_childprocess.js         # Handles child processes
-├── install_dependencies.js       # Manages package installations
 ├── package.json                 # Project metadata and dependencies
-├── package-lock.json            # Dependency lock file
-├── push_to_github.js            # Pushes project to GitHub
-├── readme.md                    # Project documentation
-├── run_in_localhost.js          # Launches app locally
-└── video-thumbnail.png          # Thumbnail for demo video
+├── package-lock.json            # Dependency lock file            
+├── readme.md                    # Project documentation         
+└── video-thumbnail.gif          # Thumbnail for demo video
+└── .gitignore                   # contains files to ignore
+
 ```
 
 ## Generated Project Structure
 ```
 my-app/                         # Your newly created app
 ├── public/                     # Static files for your app
+│   ├── index.html              # Main HTML file to be served (copied from the current structure)
 ├── src/                        # Source code of your app
 │   ├── templates/              # Various app templates
 │   ├── App.css                 # Main styles
 │   ├── App.js                  # Main application logic
 │   ├── App.test.js             # Test cases for the main app
 │   ├── index.css               # Styles for the index
-│   ├── index.html              # Main HTML file to be served (copied from the current structure)
 │   ├── index.js                # Main entry point for the app (copied from the current structure)
 │   ├── logo.svg                # Logo for the app
 │   ├── reportWebVitals.js      # Performance reporting
@@ -120,6 +125,8 @@ my-app/                         # Your newly created app
   | exec_childprocess.js              |
   | install_dependencies.js           |
   | push_to_github.js                 |
+  | copy_appheader.js                 |
+  | run_in_localhost.js               |
   +-----------------------------------+
                   |
                   v
@@ -247,3 +254,9 @@ This project is licensed under the **MIT License**. For more details, check the 
 If you have any questions or suggestions, feel free to [reach out](mailto:duddekuntadevamani@gmail.com). We’re here to help you build awesome apps with Salt!
 
 Made with ❤️ by [Duddekunta Devamani](https://github.com/Devamani11D).
+
+<div align="center">
+    <a href="#top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+    </a>
+</div>
