@@ -66,7 +66,8 @@ const Form = () => {
   return (
     <div
       style={{
-        background: "linear-gradient(135deg, #f0f0f0 0%, #c3cfe2 100%)", // Similar gradient background
+        background:
+          "linear-gradient(135deg, var(--salt-color-blue-10) 0%, var(--salt-color-purple-20) 100%)", // Similar gradient background
         padding: "30px",
         borderRadius: "10px",
         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)", // Soft shadow for elevation

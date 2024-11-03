@@ -26,7 +26,7 @@ const columnDefs = [
   },
 ];
 
-export const Default = () => {
+const AgGridComponent = () => {
   const { mode } = useTheme();
   const density = useDensity();
   const { agGridProps, containerProps } = useAgGridHelpers();
@@ -63,9 +63,7 @@ export const Default = () => {
         borderRadius: "8px", // Optional: round the corners
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Optional: box-shadow for a subtle elevation
         background:
-          mode === "light"
-            ? "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)" // Light mode gradient
-            : "linear-gradient(135deg, #1e1e1e 0%, #3a3a3a 100%)", // Dark mode gradient
+        "linear-gradient(135deg, var(--salt-color-blue-10) 0%, var(--salt-color-purple-20) 100%)",
       }}
     >
       <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
@@ -83,3 +81,4 @@ export const Default = () => {
     </div>
   );
 };
+export default AgGridComponent;

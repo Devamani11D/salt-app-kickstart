@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   FlexLayout,
   StackLayout,
@@ -15,6 +16,7 @@ import {
 } from "@salt-ds/core";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -40,30 +42,33 @@ const Login = () => {
 
     // Set loading state to true
     setIsLoading(true);
+    navigate("/appheader");  
 
     // Existing code for submission
-    axiosInstance
-      .post(`token/`, {
-        username: username,
-        password: password,
-      })
-      .then(
-        (res) => {
-          localStorage.setItem('access_token', res.data.access);
-          localStorage.setItem('refresh_token', res.data.refresh);
-          axiosInstance.defaults.headers['Authorization'] =
-            'JWT ' + localStorage.getItem('access_token');
-          history.push("/home");
-        },
-        (reason) => {
-          console.error(reason);
-          setError('Invalid Username or Password');
-        }
-      )
-      .finally(() => {
-        // Set loading state back to false
-        setIsLoading(false);
-      });
+    // axiosInstance
+    //   .post(`token/`, {
+    //     username: username,
+    //     password: password,
+    //   })
+    //   .then(
+    //     (res) => {
+    //       localStorage.setItem('access_token', res.data.access);
+    //       localStorage.setItem('refresh_token', res.data.refresh);
+    //       axiosInstance.defaults.headers['Authorization'] =
+    //         'JWT ' + localStorage.getItem('access_token');
+    //       history.push("/home");
+    //       navigate("/appheader");  
+    //     },
+    //     (reason) => {
+    //       console.error(reason);
+    //       setError('Invalid Username or Password');
+    //     }
+    //   )
+    //   .finally(() => {
+    //     // Set loading state back to false
+    //     setIsLoading(false);
+    //   });
+
   };
 
   return (

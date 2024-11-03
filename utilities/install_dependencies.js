@@ -17,6 +17,10 @@ const dependencies=[
       version:'5.0.1'
     },
     {
+        name:'react-router-dom',
+        version:'6.27.0'
+      },
+    {
         name:'@salt-ds/core',
         version:'1.32.0'
     },

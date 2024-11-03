@@ -1,4 +1,14 @@
-import React, { useState, useEffect } from "react";
+import fs from "fs-extra";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+async function copy_appHeader(projectName,template_choices) {
+    let basePath,destination,destinationPath;
+    let app_header_content=`
+    import React, { useState, useEffect } from "react";
 import {
   BorderItem,
   BorderLayout,
@@ -71,7 +81,7 @@ const AppHeader = () => {
                 <li key={item}>
                   <NavigationItem
                     active={active === item}
-                    href="/"
+                    href={item.toLowerCase()}
                     onClick={() => setActive(item)}
                     style={{
                       color: active === item ? "#6a5acd" : "#fff",
@@ -202,7 +212,7 @@ const AppHeader = () => {
     );
   };
 
-  const items = ["Home", "About", "Services", "Contact", "Blog"];
+  const items = ${JSON.stringify(template_choices)};
   const utilities = [
     {
       icon: <UserBadgeIcon size={2} />,
@@ -224,3 +234,31 @@ const AppHeader = () => {
 };
 
 export default AppHeader;
+
+    `;
+    let relativePath = `${
+      path.sep + "templates" + path.sep + "appheader"+path.sep+
+      "AppHeader.js"
+    }`;
+    
+      basePath= process.cwd();
+      destinationPath = `${projectName + path.sep}`;
+      destination = basePath + path.sep + destinationPath +"src"+ relativePath;
+      const dir = path.dirname(destination);
+
+fs.mkdir(dir, { recursive: true }, (err) => {
+  if (err) {
+    console.error(`Error creating directory ${dir}: ${err.message}`);
+    return;
+  }
+      fs.writeFile(destination, app_header_content, "utf-8", (err) => {
+        if (err) {
+          console.error(`Error writing to AppHeader.js: ${err.message}`);
+          return;
+        }
+        console.log(`Content has been successfully written to ${destination}`);
+      });
+    });
+}
+
+export default copy_appHeader;
