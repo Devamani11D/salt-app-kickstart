@@ -62,6 +62,10 @@ salt-app-kickstart/
   ├── CONTRIBUTING.md              # Contribution guidelines
   ├── KNOWN_ISSUES_AND_TASKS.md    # Document listing known issues
   ├── LICENSE                      # License details
+├──public
+  ├──index.html                  # File to be copied to generated salt-app
+├──src
+  ├──index.js                    # File to be copied to generated salt-app
 ├── cli.js                       # Main entry point for the CLI tool
 ├── package.json                 # Project metadata and dependencies
 ├── package-lock.json            # Dependency lock file            
