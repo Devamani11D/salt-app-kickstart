@@ -33,7 +33,7 @@ npx salt-app-kickstart@latest
 
 ## 🎥 Video Demonstration
 
-[![](/video-thumbnail.gif)](https://drive.google.com/file/d/1JIBCPyL2K3Ta3AOMTqt7BuqHjlnxS7m3/view?usp=sharing)
+[![](/salt-app-kickstart-demo.gif)](https://drive.google.com/file/d/1-0BnTLvQEbWKpRfVME0gOX3hnP3XfsHf/view?usp=sharing)
 
 ## 🌟 Why Salt App Kickstart?
 
