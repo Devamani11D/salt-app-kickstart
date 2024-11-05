@@ -259,10 +259,14 @@ Made with ❤️ by [Duddekunta Devamani](https://github.com/Devamani11D).
 
 <div align="center">
     <a href="#top">
-        <img src="https://img.shields.io/badge/Back%20to%20Top-000000?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
+        <img src="https://img.shields.io/badge/Back%20to%20Top-007BFF?style=for-the-badge&logo=github&logoColor=white" alt="Back to Top">
     </a>
 </div>
 
+<br/>
+<p align="center">
+    <a href="https://github.com/piyushsuthar/github-readme-quotes">
+        <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark" alt="Readme Quotes">
+    </a>
+</p>
 
-
-[![Readme Quotes](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark)](https://github.com/piyushsuthar/github-readme-quotes)
